@@ -1,0 +1,102 @@
+.section {
+  display: flex;
+  gap: 20px; /* Space between sidebar and pets list */
+  padding: 20px;
+  background-color: #f9f9f9; /* Light background for the section */
+  border-radius: 8px; /* Rounded corners */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Soft shadow */
+}
+
+.section h2 {
+  color: #4CAF50; /* Green color for headings */
+  text-align: center; /* Center align the heading */
+  width: 100%;
+}
+
+.filter-sidebar {
+  width: 220px;
+  padding: 15px;
+  border: 1px solid #ddd; /* Light border */
+  border-radius: 8px;
+  background-color: #ffffff; /* White background for sidebar */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Soft shadow */
+}
+
+.filter-sidebar h3 {
+  color: #4CAF50;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.filter-sidebar label {
+  display: block;
+  margin-bottom: 15px;
+  color: #333;
+  font-weight: bold;
+}
+
+.filter-sidebar select,
+.filter-sidebar input {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 14px;
+  margin-top: 5px; /* Space between label and input */
+}
+
+.search-bar {
+  width: 100%; /* Full width for the search bar */
+  max-width: 400px; /* Limit the maximum width */
+  padding: 10px; /* Padding for input */
+  margin-bottom: 20px; /* Space below search bar */
+  border: 1px solid #ccc; /* Light border */
+  border-radius: 4px; /* Rounded corners */
+  font-size: 16px; /* Font size */
+  
+}
+
+.pets-list {
+  display: flex;
+  flex-wrap: wrap; /* Allow wrapping of pet cards */
+  justify-content: center; /* Center pet cards horizontally */
+  gap: 20px; /* Space between pet cards */
+}
+
+.pet-card {
+  background-color: white; /* White background for pet cards */
+  border: 1px solid #ccc; /* Light border */
+  border-radius: 8px; /* Rounded corners */
+  padding: 15px; /* Padding for pet cards */
+  width: 250px; /* Fixed width for uniformity */
+  text-align: center; /* Center text inside pet cards */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Soft shadow for pet cards */
+}
+
+.pet-card img {
+  max-width: 100%; /* Ensure images are responsive */
+  border-radius: 4px; /* Rounded corners for images */
+}
+
+.pet-card h3 {
+  margin: 10px 0; /* Space above and below pet names */
+}
+
+.pet-card p {
+  margin: 5px 0; /* Space above and below pet details */
+}
+
+.pet-card a {
+  display: inline-block; /* Make link a block for better spacing */
+  margin-top: 10px; /* Space above the link */
+  padding: 8px 12px; /* Padding for the link */
+  background-color: #4CAF50; /* Green background for link */
+  color: white; /* White text */
+  border-radius: 4px; /* Rounded corners */
+  text-decoration: none; /* Remove underline */
+  transition: background-color 0.3s; /* Smooth background transition */
+}
+
+.pet-card a:hover {
+  background-color: #45a049; /* Darker green on hover */
+} 

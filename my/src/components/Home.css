@@ -1,0 +1,109 @@
+.home-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center elements horizontally */
+    padding: 20px;
+    background-color: #f9f9f9; /* Light background for the section */
+  }
+  
+  .hero {
+    text-align: center; /* Center text in hero section */
+    margin-bottom: 40px; /* Space below hero section */
+  }
+  
+  .hero h1 {
+    color: #4CAF50; /* Green color for main heading */
+    margin-bottom: 10px; /* Space below heading */
+  }
+  
+  .hero p {
+    font-size: 18px; /* Font size for paragraph */
+    margin-bottom: 20px; /* Space below paragraph */
+  }
+  
+  .cta-buttons {
+    margin: 20px 0; /* Space above and below buttons */
+    display: flex;
+    justify-content: center; /* Center buttons */
+    gap: 20px; /* Space between buttons */
+  }
+  
+  .cta-buttons button {
+    padding: 10px 20px;
+    background-color: #4CAF50; /* Green background for buttons */
+    color: white; /* White text */
+    border: none; /* No border */
+    border-radius: 4px; /* Rounded corners */
+    font-size: 16px; /* Font size for buttons */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background-color 0.3s; /* Smooth background transition */
+  }
+  
+  .cta-buttons button:hover {
+    background-color: #45a049; /* Darker green on hover */
+  }
+  
+  .mission-statement,
+  .stats,
+  .success-stories,
+  .events,
+  .help-section,
+  .pet-care-tips {
+    width: 100%;
+    max-width: 800px; /* Maximum width for sections */
+    margin: 20px 0; /* Space above and below sections */
+    padding: 20px; /* Padding for sections */
+    background-color: white; /* White background for sections */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Soft shadow */
+    text-align: center; /* Center text in each section */
+  }
+  
+  .mission-statement h2,
+  .stats h2,
+  .success-stories h2,
+  .events h2,
+  .help-section h2,
+  .pet-care-tips h2 {
+    color: #4CAF50; /* Green color for headings */
+    margin-bottom: 10px; /* Space below headings */
+  }
+  
+  .success-stories {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .story {
+    display: flex;
+    flex-direction: column; /* Stack image and text vertically */
+    align-items: center; /* Center items */
+    margin-bottom: 20px; /* Space below stories */
+  }
+  
+  .story img {
+    width: 100px; /* Set width for images */
+    height: auto; /* Maintain aspect ratio */
+    margin-bottom: 10px; /* Space between image and text */
+    border-radius: 4px; /* Rounded corners for images */
+  }
+  
+  .events ul,
+  .pet-care-tips ul {
+    list-style-type: none; /* Remove bullet points */
+    padding: 0; /* Remove padding */
+    text-align: center; /* Center text in lists */
+  }
+  
+  .events li,
+  .pet-care-tips li {
+    margin-bottom: 10px; /* Space below list items */
+  }
+  
+  .toggle-link {
+    color: #4CAF50; /* Green color for toggle link */
+    cursor: pointer; /* Pointer cursor on hover */
+    text-decoration: underline; /* Underline text */
+  }
+  

@@ -1,0 +1,104 @@
+/* Main container for the AddPet component */
+.add-pet-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center align items horizontally */
+  justify-content: center; /* Center align items vertically */
+  height: 100vh; /* Full viewport height */
+  margin: 0; /* Remove default margin */
+  background-color: #f0f0f0; /* Light background for the whole page */
+}
+
+/* Heading styles */
+h2 {
+  color: green; /* Set the color for headings */
+  margin-bottom: 20px; /* Space below the heading */
+}
+
+/* Form styles */
+form {
+  display: flex;
+  flex-direction: column; /* Stack form elements vertically */
+  width: 100%; /* Full width */
+  max-width: 400px; /* Limit the width of the form */
+  padding: 20px; /* Add padding inside the form */
+  border: 1px solid #ccc; /* Add a border */
+  border-radius: 8px; /* Rounded corners */
+  background-color: #f9f9f9; /* Light background color */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+/* Label styles */
+label {
+  margin: 10px 0; /* Space between labels */
+  font-size: 16px; /* Increase font size for labels */
+  font-weight: bold; /* Bold labels for clarity */
+}
+
+/* Input and textarea styles */
+input[type="text"],
+input[type="number"],
+textarea {
+  width: 100%; /* Full width inputs */
+  padding: 12px; /* Increased padding inside inputs for better usability */
+  border: 1px solid #ccc; /* Border color */
+  border-radius: 4px; /* Rounded corners */
+  margin-top: 5px; /* Space above inputs */
+  box-sizing: border-box; /* Ensure padding doesn't affect width */
+  font-size: 16px; /* Increase font size for better readability */
+}
+
+/* Textarea specific styles */
+textarea {
+  height: 100px; /* Set height for textarea for better visibility */
+  resize: vertical; /* Allow resizing only vertically */
+}
+
+/* Button styles */
+button {
+  margin-top: 20px; /* Space above the button */
+  padding: 12px; /* Padding inside the button */
+  border: none; /* Remove border */
+  border-radius: 4px; /* Rounded corners */
+  background-color: green; /* Button background color */
+  color: white; /* Button text color */
+  font-size: 16px; /* Increase font size for better readability */
+  cursor: pointer; /* Pointer cursor on hover */
+  transition: background-color 0.3s; /* Smooth background color change */
+}
+
+button:hover {
+  background-color: darkgreen; /* Darken button on hover */
+}
+
+/* Input field focus styles */
+input[type="text"]:focus,
+input[type="number"]:focus,
+textarea:focus {
+  border-color: green; /* Green border on focus */
+  outline: none; /* Remove default outline */
+}
+
+/* File input styles */
+input[type="file"] {
+  padding: 10px; /* Padding inside the file input */
+  border: 1px solid #ccc; /* Border color */
+  border-radius: 4px; /* Rounded corners */
+  margin-top: 5px; /* Space above input */
+  box-sizing: border-box; /* Ensure padding doesn't affect width */
+}
+
+/* Responsive styling */
+@media (max-width: 480px) {
+  .add-pet-container {
+    padding: 10px; /* Add padding to the container on smaller screens */
+  }
+
+  form {
+    max-width: 100%; /* Full width for form on smaller screens */
+  }
+
+  button {
+    padding: 10px 0; /* Make button padding smaller on mobile */
+  }
+}

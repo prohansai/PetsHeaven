@@ -1,0 +1,48 @@
+# Node modules (frontend and backend)
+node_modules/
+
+# Environment variables (frontend and backend)
+.env
+.env.local
+.env.*.local
+
+# Testing (frontend and backend)
+coverage/
+
+# Production build output (frontend and backend)
+build/
+dist/
+
+# Logs (frontend and backend)
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# OS-specific files (frontend and backend)
+.DS_Store
+Thumbs.db
+
+# IDE-specific files (frontend and backend)
+.vscode/
+.idea/
+
+# Optional cache files (frontend and backend)
+.cache/
+.eslintcache
+
+# For Admin Frontend (if different from User)
+# Admin frontend specific environment variables
+/admin/.env.local
+/admin/.env.development.local
+
+# For User Frontend (if different from Admin)
+# User frontend specific environment variables
+/my/.env.local
+/my/.env.development.local
+
+# Backend-specific environment variables
+/backend/.env
+/backend/.env.local
+/backend/.env.development.local

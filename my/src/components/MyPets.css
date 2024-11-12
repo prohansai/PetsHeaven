@@ -1,0 +1,51 @@
+.pets-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px; /* Space between cards */
+  padding: 20px;
+}
+ h2 {
+  text-align: center; /* Center the title text */
+  margin: 0; /* Remove default margin for consistency */
+  padding: 10px 0; /* Optional: Add padding for spacing */
+}
+.pet-card {
+  background-color: #f9f9f9; /* Light background for card */
+  border: 1px solid #ddd; /* Subtle border */
+  border-radius: 8px; /* Rounded corners */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Soft shadow */
+  padding: 15px;
+  width: 250px; /* Fixed width for cards */
+  text-align: center; /* Center text */
+  transition: transform 0.2s; /* Smooth scaling effect */
+}
+
+.pet-card:hover {
+  transform: scale(1.02); /* Slight zoom on hover */
+}
+
+.pet-card img {
+  max-width: 100%; /* Responsive image */
+  border-radius: 4px; /* Slightly rounded image corners */
+  height: 150px; /* Fixed height for images */
+  object-fit: cover; /* Cover to maintain aspect ratio */
+}
+
+.pet-buttons {
+  margin-top: 10px; /* Space above buttons */
+}
+
+.pet-buttons button {
+  background-color: #28a745; /* Green background for buttons */
+  color: white; /* White text */
+  border: none; /* Remove border */
+  border-radius: 4px; /* Rounded corners */
+  padding: 8px 12px; /* Padding for buttons */
+  cursor: pointer; /* Pointer cursor on hover */
+  transition: background-color 0.3s; /* Smooth transition for hover effect */
+}
+
+.pet-buttons button:hover {
+  background-color: #218838; /* Darker green on hover */
+}

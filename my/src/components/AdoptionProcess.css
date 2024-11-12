@@ -1,0 +1,30 @@
+.adoption-process{
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center content horizontally */
+  justify-content: center; /* Center content vertically */
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  max-width: 600px; /* Optional: Limits width for better alignment */
+  margin: 0 auto; /* Centers the section in the page */
+}
+
+.adoption-process h2 {
+  color: #4CAF50;
+  margin-bottom: 20px;
+  text-align: center; /* Centers the heading */
+}
+
+.adoption-process ol {
+  list-style-position: inside;
+  margin: 0;
+  padding: 0;
+}
+
+.adoption-process li {
+  margin: 10px 0;
+  font-size: 1.1em;
+  text-align: center; /* Centers text for each list item */
+}

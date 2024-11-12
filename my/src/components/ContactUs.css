@@ -1,0 +1,55 @@
+.contact-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center elements horizontally */
+  padding: 20px;
+  background-color: #f9f9f9; /* Light background for the section */
+  border-radius: 8px; /* Rounded corners */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Soft shadow */
+}
+
+.contact-section h2 {
+  color: #4CAF50; /* Green color for headings */
+  margin-bottom: 20px; /* Space below heading */
+}
+
+.contact-section p {
+  text-align: center; /* Center text */
+  margin-bottom: 20px; /* Space below paragraph */
+}
+
+.contact-section .contact-form {
+  display: flex;
+  flex-direction: column; /* Stack labels and inputs vertically */
+  width: 100%; /* Full width for the form */
+  max-width: 400px; /* Maximum width for better layout */
+}
+
+.contact-section label {
+  margin-bottom: 5px; /* Space below label */
+}
+
+.contact-section input,
+.contact-section textarea {
+  padding: 10px; /* Padding for input fields */
+  margin-bottom: 15px; /* Space below input fields */
+  border: 1px solid #ccc; /* Light border */
+  border-radius: 4px; /* Rounded corners */
+  font-size: 16px; /* Font size for input fields */
+  width: 100%; /* Full width for input fields */
+}
+
+.contact-section button {
+  padding: 10px 15px; /* Padding for button */
+  background-color: #4CAF50; /* Green background for button */
+  color: white; /* White text */
+  border: none; /* No border */
+  border-radius: 4px; /* Rounded corners */
+  font-size: 16px; /* Font size for button */
+  cursor: pointer; /* Pointer cursor on hover */
+  transition: background-color 0.3s; /* Smooth background transition */
+}
+
+.contact-section button:hover {
+  background-color: #45a049; /* Darker green on hover */
+}
