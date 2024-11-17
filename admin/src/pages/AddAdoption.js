@@ -103,6 +103,7 @@ import UserSearch from '../components/UserSearch';
 import PetSearch from '../components/PetSearch';
 import './AddAdoption.css';
 import Navbar from '../components/Navbar';
+import { toast } from 'react-toastify';
 
 const AddAdoption = () => {
     const [selectedAdopter, setSelectedAdopter] = useState(null);
@@ -115,7 +116,7 @@ const AddAdoption = () => {
         e.preventDefault();
 
         if (!selectedAdopter || !selectedOwner || !selectedPet) {
-            alert('Please select an adopter, owner, and pet');
+            toast.error('Please select an adopter, owner, and pet');
             return;
         }
 
@@ -138,7 +139,7 @@ const AddAdoption = () => {
             });
 
             if (response && response.status >= 200 && response.status < 300) {
-                alert('Adoption added successfully!');
+                toast.success('Adoption added successfully!');
 
                 // Step 2: Delete the adopted pet from the database using the admin route
                 await axios.delete(`http://localhost:5000/api/pets/admin/${selectedPet._id}`);
@@ -152,7 +153,7 @@ const AddAdoption = () => {
             }
         } catch (error) {
             console.error('Failed to add adoption:', error);
-            alert('Failed to add adoption');
+            toast.error('Failed to add adoption');
         }
     };
 

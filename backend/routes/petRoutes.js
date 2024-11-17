@@ -20,14 +20,13 @@ const router = express.Router();
 router.get('/search', searchPets);
 
 router.get('/',  getAllPets); // Get all pets
-// router.post('/', authenticateUser,  addPet); // Add a new pet
-// router.post('/', authenticateUser, upload.array('images', 5), addPet); // Add a new pet and Allow up to 5 images
+
 router.post('/', authenticateUser,  addPet); // Add a new pet and Allow up to 5 images
 
 
 
-router.delete('/:id', authenticateUser, deletePet); // Delete a pet by ID  Regular user deletion (requires auth)
-router.delete('/admin/:id', deletePet); // Admin deletion (no auth required)
+router.delete('/:id', authenticateUser, deletePet); // Delete a pet by ID  Regular user deletion (requires auth) from user login frontend
+router.delete('/admin/:id', deletePet); // Admin deletion (no auth required) from admin login frontend
 
 router.get('/my', authenticateUser, getPetsByUserId); //gets pets by user id
 router.get('/:id', authenticateUser, getPetById); // Get a pet by ID

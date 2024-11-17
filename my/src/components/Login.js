@@ -2,6 +2,7 @@ import React, { useState, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../contexts/AuthContext'; // Ensure AuthContext is correctly imported
 import './Login.css';
+import { toast } from 'react-toastify';
 
 const Login = () => {
   const [isLogin, setIsLogin] = useState(true);
@@ -18,7 +19,7 @@ const Login = () => {
     event.preventDefault();
 
     if (!isLogin && password !== confirmPassword) {
-      alert("Passwords don't match!");
+      toast.error("Passwords don't match!");
       return;
     }
 
@@ -41,17 +42,17 @@ const Login = () => {
         // Update AuthContext with user data and token
         setAuthData({ token: data.token, user: data.user });
 
-        alert(isLogin ? 'Login successful!' : 'Registration successful!');
+        toast.success(isLogin ? 'Login successful!' : 'Registration successful!');
         
         // Redirect to home page
         navigate('/');
       } else {
         const errorData = await response.json();
-        alert(errorData.message || 'Error during login/registration.');
+        toast.error(errorData.message || 'Error during login/registration.');
       }
     } catch (error) {
       console.error('Error:', error);
-      alert('An error occurred. Please try again later.');
+      toast.error('An error occurred. Please try again later.');
     }
   };
 

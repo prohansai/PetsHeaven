@@ -3,16 +3,18 @@
   display: flex;
   flex-direction: column;
   align-items: center; /* Center align items horizontally */
-  justify-content: center; /* Center align items vertically */
-  height: 100vh; /* Full viewport height */
+  justify-content: flex-start; /* Align items to the start vertically */
+  min-height: 100vh; /* Full viewport height with flexibility */
   margin: 0; /* Remove default margin */
   background-color: #f0f0f0; /* Light background for the whole page */
+  padding-top: 30px; /* Add space at the top for the heading */
 }
 
 /* Heading styles */
 h2 {
   color: green; /* Set the color for headings */
   margin-bottom: 20px; /* Space below the heading */
+  text-align: center; /* Center the heading */
 }
 
 /* Form styles */
@@ -86,6 +88,21 @@ input[type="file"] {
   border-radius: 4px; /* Rounded corners */
   margin-top: 5px; /* Space above input */
   box-sizing: border-box; /* Ensure padding doesn't affect width */
+}
+
+/* Image previews */
+.image-previews {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+  flex-wrap: wrap;
+}
+
+.preview-image {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 8px;
 }
 
 /* Responsive styling */

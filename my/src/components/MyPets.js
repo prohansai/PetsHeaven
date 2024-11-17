@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import './MyPets.css'; // Ensure you import your styles
+import { toast } from 'react-toastify';
 
 const MyPets = () => {
   const [pets, setPets] = useState([]);
@@ -26,7 +27,7 @@ const MyPets = () => {
         },
       });
       setPets(pets.filter((pet) => pet._id !== petId));
-      alert('Pet deleted successfully');
+      toast.success('Pet deleted successfully');
     } catch (error) {
       console.error('Error deleting pet:', error);
     }

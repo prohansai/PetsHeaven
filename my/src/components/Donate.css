@@ -1,168 +1,59 @@
-/*.donate-container {
-  display: flex;
-  gap: 20px; 
-  padding: 20px;
-}
-
-.donate-form {
-  flex: 3; 
-  padding: 20px;
-  background-color: #f9f9f9;
-  border-radius: 8px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+.mined {
   display: flex;
   flex-direction: column;
-  align-items: center;
-}
-
-.donate-form h2 {
-  color: #4CAF50;
-  margin-bottom: 20px;
-}
-
-.donate-form input,
-.donate-form textarea {
   width: 100%;
-  max-width: 400px;
-  margin-bottom: 10px;
-  padding: 8px;
-  border-radius: 4px;
-  border: 1px solid #ddd;
-  text-align: center;
+  height: 100vh; /* Cover the full viewport height */
+  position: relative;
+  background-image: url('./donate-bg.png'); /* Replace with your image URL */
+  background-size: cover;
+  background-position: center;
 }
-
-.donate-form button {
-  padding: 10px 20px;
-  background-color: #4CAF50;
-  color: #fff;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  margin-top: 10px;
-}
-
-.qr-code-container {
-  text-align: center;
-  margin-top: 20px;
-}
-
-.qr-code-image {
-  width: 200px;
-  height: 200px;
-  margin-top: 10px;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-}
-
-
-.donors-list {
-  flex: 1; 
-  background-color: #f1f1f1;
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
-
-.donors-list h3 {
-  color: #4CAF50;
-  text-align: center;
-  margin-bottom: 10px;
-}
-
-.donors-list ul {
-  list-style-type: none;
-  padding: 0;
-}
-
-.donors-list li {
-  margin-bottom: 8px;
-  font-size: 1em;
-  text-align: center;
-}*/
 
 .donate-container {
   display: flex;
-  gap: 20px; /* Space between the information and donors list */
+  gap: 20px;
   padding: 20px;
+  flex-grow: 1;
+  position: relative;
+  z-index: 1;
+  overflow: hidden; /* Ensure no scrollbars within this container */
 }
 
 .donate-info {
-  flex: 3; /* 75% of the available width */
+  flex: 3;
   padding: 20px;
-  background-color: #f9f9f9;
+  background-color: rgba(255, 255, 255, 0.8);
   border-radius: 8px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   display: flex;
   flex-direction: column;
   align-items: center;
+  overflow: hidden; /* Ensure no internal scrollbars */
 }
 
-.donate-info h2 {
-  color: #4CAF50;
-  margin-bottom: 20px;
-}
-
-.donate-info p,
-.donate-info ul {
-  text-align: center;
-  margin-bottom: 20px;
-}
-
-.donate-info ul {
-  list-style-type: none;
-  padding: 0;
-}
-
-.donate-info li {
-  margin-bottom: 8px;
-  font-size: 1em;
-}
-
-.donate-button {
-  padding: 10px 20px;
-  background-color: #4CAF50;
-  color: #fff;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
+.donors-list {
+  flex: 1;
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  overflow: hidden; /* Prevent donors list overflow */
 }
 
 .qr-code-container {
   text-align: center;
   margin-top: 20px;
+  padding: 10px;
+  background-color: rgba(255, 255, 255, 0.9); /* Slightly opaque background for contrast */
+  border-radius: 8px; /* Rounded corners for a polished look */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+  display: inline-block; /* Fit the content size */
 }
 
 .qr-code-image {
-  width: 200px;
-  height: 200px;
+  width: 150px; /* Adjusted size for better aesthetics */
+  height: 150px; /* Match the width for a square */
   margin-top: 10px;
-  border: 1px solid #ddd;
+  border: 2px solid #ddd; /* Slightly thicker border for emphasis */
   border-radius: 8px;
 }
-
-/* Style for donors list section */
-.donors-list {
-  flex: 1; /* 25% of the available width */
-  background-color: #f1f1f1;
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
-
-.donors-list h3 {
-  color: #4CAF50;
-  text-align: center;
-  margin-bottom: 10px;
-}
-
-.donors-list ul {
-  list-style-type: none;
-  padding: 0;
-}
-
-.donors-list li {
-  margin-bottom: 8px;
-  font-size: 1em;
-  text-align: center;
-}
-

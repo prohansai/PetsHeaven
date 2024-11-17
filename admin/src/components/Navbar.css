@@ -16,7 +16,7 @@ nav {
 nav ul {
     list-style: none; /* Remove bullets */
     display: flex; /* Align items in a row */
-    justify-content: flex-start; /* Align items to the start */
+    justify-content: space-evenly; /* Align items to the start */
     align-items: center; /* Center vertically */
     padding: 0; /* Remove default padding */
     margin: 0; /* Remove default margin */

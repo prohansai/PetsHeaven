@@ -1,56 +1,4 @@
-// controllers/petController.js
 import Pet from '../models/Pet.js';
-
-// export const addPet = async (req, res) => {
-//   const { name, type, breed, location, age, description, images } = req.body; // Removed ownerId from the destructuring
-//   try {
-//     // Create a new pet with the data from the request body
-//     const newPet = new Pet({
-//       name,
-//       type,
-//       breed,
-//       location,
-//       age,
-//       description,
-//       images,
-//       ownerId: req.user.id, // Set ownerId to the authenticated user's ID
-//     });
-
-//     // Save the new pet to the database
-//     await newPet.save();
-//     res.status(201).json(newPet);
-//   } catch (error) {
-//     res.status(500).json({ message: error.message });
-//   }
-// };
-
-
-
-
-
-// export const addPet = async (req, res) => {
-//   const { name, type, breed, location, age, description } = req.body;
-//   const images = req.files ? req.files.map(file => file.path) : []; // Extract URLs from uploaded images
-
-//   try {
-//     const newPet = new Pet({
-//       name,
-//       type,
-//       breed,
-//       location,
-//       age,
-//       description,
-//       images, // Save image URLs in the database
-//       ownerId: req.user.id,
-//     });
-
-//     await newPet.save();
-//     res.status(201).json(newPet);
-//   } catch (error) {
-//     res.status(500).json({ message: error.message });
-//   }
-// };
-
 
 export const addPet = async (req, res) => {
   const { name, type, breed, location, age, description, images } = req.body;
@@ -73,10 +21,6 @@ export const addPet = async (req, res) => {
     res.status(500).json({ message: error.message });
   }
 };
-
-
-
-
 
 
 

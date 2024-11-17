@@ -3,6 +3,7 @@ import axios from 'axios';
 import UserSearch from '../components/UserSearch';
 import './AddDonation.css';
 import Navbar from '../components/Navbar';
+import { toast } from 'react-toastify';
 
 const AddDonation = () => {
     const [selectedUser, setSelectedUser] = useState(null);
@@ -14,7 +15,7 @@ const AddDonation = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         if (!selectedUser) {
-            alert('Please select a user');
+            toast.error('Please select a user');
             return;
         }
 
@@ -34,7 +35,7 @@ const AddDonation = () => {
             });
 
             if (response && response.status >= 200 && response.status < 300) {
-                alert('Donation added successfully!');
+                toast.success('Donation added successfully!');
                 // Reset form fields and selected user after success
                 setAmount('');
                 setDate('');
@@ -44,7 +45,7 @@ const AddDonation = () => {
             }
         } catch (error) {
             console.error('Failed to add donation:', error);
-            alert('Failed to add donation');
+            toast.error('Failed to add donation');
         }
     };
 

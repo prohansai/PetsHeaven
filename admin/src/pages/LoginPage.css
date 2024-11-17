@@ -1,0 +1,72 @@
+/* LoginPage.css */
+
+.login-container {
+    font-family: Arial, sans-serif;
+    background-image: url('./admin-login.png'); /* Replace with your image URL */
+    background-size: cover; /* Ensures the image covers the whole page */
+    background-position: center; /* Centers the background image */
+    background-repeat: no-repeat; /* Prevents image repetition */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Full viewport height */
+    color: white; /* Text color to stand out on dark backgrounds */
+    padding: 20px;
+    width: 80vw;
+    
+}
+
+.login-container h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    text-align: center;
+    color:white; /* Ensures the title stands out */
+}
+
+.forma {
+    background-color: rgba(0, 0, 0, 0.6); /* Semi-transparent background */
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    width: 100%;
+    max-width: 400px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    font-size: 1rem;
+}
+
+button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+@media (max-width: 600px) {
+    .login-container {
+        padding: 10px;
+    }
+
+    form {
+        width: 90%;
+        padding: 20px;
+    }
+}

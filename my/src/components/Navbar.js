@@ -78,6 +78,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { FaUserCircle } from 'react-icons/fa';
 import { AuthContext } from '../contexts/AuthContext';
 import './Navbar.css';
+import { toast } from 'react-toastify';
 
 const Navbar = () => {
   const [showProfileMenu, setShowProfileMenu] = useState(false);
@@ -91,7 +92,7 @@ const Navbar = () => {
   const handleLogout = () => {
     logout();
     setShowProfileMenu(false);
-    alert('Logged out successfully!');
+    toast.success('Logged out successfully!');
     navigate('/');
   };
 
