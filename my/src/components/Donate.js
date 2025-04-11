@@ -1,6 +1,3 @@
-
-
-
 import React, { useState, useEffect } from 'react';
 import './Donate.css';
 
@@ -12,7 +9,7 @@ const Donate = () => {
   useEffect(() => {
     const fetchDonors = async () => {
       try {
-        const response = await fetch('http://localhost:5000/api/donations');
+        const response = await fetch('https://petsheaven-backend.onrender.com/api/donations');
         const data = await response.json();
         setDonors(data);
       } catch (error) {

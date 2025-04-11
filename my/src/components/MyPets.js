@@ -8,7 +8,7 @@ const MyPets = () => {
 
   const fetchPets = async () => {
     try {
-      const response = await axios.get('http://localhost:5000/api/pets/my', {
+      const response = await axios.get('https://petsheaven-backend.onrender.com/api/pets/my', {
         headers: {
           Authorization: `Bearer ${localStorage.getItem('token')}`,
         },
@@ -21,7 +21,7 @@ const MyPets = () => {
 
   const deletePet = async (petId) => {
     try {
-      await axios.delete(`http://localhost:5000/api/pets/${petId}`, {
+      await axios.delete(`https://petsheaven-backend.onrender.com/api/pets/${petId}`, {
         headers: {
           Authorization: `Bearer ${localStorage.getItem('token')}`,
         },

@@ -1,6 +1,3 @@
-
-
-
 //after pet name, image
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
@@ -11,7 +8,7 @@ const MyAdoptions = () => {
 
   const fetchAdoptions = async () => {
     try {
-      const response = await axios.get('http://localhost:5000/api/adoptions/my', {
+      const response = await axios.get('https://petsheaven-backend.onrender.com/api/adoptions/my', {
         headers: {
           Authorization: `Bearer ${localStorage.getItem('token')}`,
         },

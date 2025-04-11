@@ -62,7 +62,7 @@ const AddPet = () => {
 
     try {
       const uploadedImages = await uploadImages(imageFiles); // Upload images to Cloudinary
-      const response = await axios.post('http://localhost:5000/api/pets', {
+      const response = await axios.post('https://petsheaven-backend.onrender.com/api/pets', {
         ...petData,
         images: uploadedImages, // Include the uploaded image URLs
       }, {
