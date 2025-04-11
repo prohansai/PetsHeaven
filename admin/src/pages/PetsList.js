@@ -11,7 +11,7 @@ const PetsList = () => {
     // Fetch pets from the backend
     const fetchPets = async () => {
       try {
-        const response = await axios.get('http://localhost:5000/api/pets'); // Change with your backend route
+        const response = await axios.get('https://petsheaven-backend.onrender.com/api/pets'); // Change with your backend route
         setPets(response.data);
       } catch (error) {
         console.error('Error fetching pets:', error);
@@ -23,7 +23,7 @@ const PetsList = () => {
 
   const handleDeletePet = async (petId) => {
     try {
-      await axios.delete(`http://localhost:5000/api/pets/admin/${petId}`);
+      await axios.delete(`https://petsheaven-backend.onrender.com/api/pets/admin/${petId}`);
       setPets(pets.filter(pet => pet._id !== petId)); // Remove the deleted pet from the state
       toast.success("Pet deleted successfully")
     } catch (error) {

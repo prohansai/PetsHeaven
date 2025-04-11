@@ -10,7 +10,7 @@ const UserSearch = ({ onSelectUser }) => {
         console.log('Search term:', trimmedSearchTerm); // Trim the search term
         if (trimmedSearchTerm) {
             try {
-                const response = await axios.get(`http://localhost:5000/api/users/search`, {
+                const response = await axios.get(`https://petsheaven-backend.onrender.com/api/users/search`, {
                     params: { name: trimmedSearchTerm },
                 });
                 console.log('Fetched users:', response.data); // Check the fetched data

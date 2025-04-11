@@ -133,7 +133,7 @@ const AddAdoption = () => {
 
         try {
             // Step 1: Add the adoption
-            const response = await axios.post('http://localhost:5000/api/adoptions', adoptionData, {
+            const response = await axios.post('https://petsheaven-backend.onrender.com/api/adoptions', adoptionData, {
                 headers: {
                     'Content-Type': 'application/json',
                 },
@@ -143,7 +143,7 @@ const AddAdoption = () => {
                 toast.success('Adoption added successfully!');
 
                 // Step 2: Delete the adopted pet from the database using the admin route
-                await axios.delete(`http://localhost:5000/api/pets/admin/${selectedPet._id}`);
+                await axios.delete(`https://petsheaven-backend.onrender.com/api/pets/admin/${selectedPet._id}`);
 
                 // Step 3: Reset the form fields
                 setSelectedAdopter(null);

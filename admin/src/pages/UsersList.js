@@ -13,7 +13,7 @@ const UsersList = () => {
     // Fetch users from the backend
     const fetchUsers = async () => {
       try {
-        const response = await axios.get('http://localhost:5000/api/users/users');
+        const response = await axios.get('https://petsheaven-backend.onrender.com/api/users/users');
         setUsers(response.data);
       } catch (error) {
         console.error('Error fetching users:', error);
@@ -25,7 +25,7 @@ const UsersList = () => {
 
   const handleDeleteUser = async (userId) => {
     try {
-      await axios.delete(`http://localhost:5000/api/users/${userId}`);
+      await axios.delete(`https://petsheaven-backend.onrender.com/api/users/${userId}`);
       setUsers(users.filter(user => user._id !== userId)); // Remove the deleted user from the state
       toast.success("user deleted successfully")
     } catch (error) {

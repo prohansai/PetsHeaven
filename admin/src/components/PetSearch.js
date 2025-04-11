@@ -14,7 +14,7 @@ const PetSearch = ({ onSelectPet }) => {
 
             if (trimmedQuery) {
                 try {
-                    const response = await axios.get('http://localhost:5000/api/pets/search', {
+                    const response = await axios.get('https://petsheaven-backend.onrender.com/api/pets/search', {
                         params: { name: trimmedQuery },
                     });
                     setResults(response.data);
