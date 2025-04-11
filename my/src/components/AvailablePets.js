@@ -12,7 +12,7 @@ const AvailablePets = () => {
   useEffect(() => {
     const fetchPets = async () => {
       try {
-        const response = await fetch('http://localhost:5000/api/pets'); 
+        const response = await fetch('https://petsheaven-backend.onrender.com/api/pets'); 
         const data = await response.json();
         setPets(data);
       } catch (error) {
