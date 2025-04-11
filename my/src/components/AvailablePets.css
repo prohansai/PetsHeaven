@@ -1,116 +1,83 @@
-/* Section Container */
 .section {
   display: flex;
-  gap: 20px; /* Space between sidebar and pets list */
-  padding: 20px;
-  background-color: #f9f9f9; /* Light background for the section */
-  border-radius: 8px; /* Rounded corners */
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Soft shadow */
-  flex-wrap: wrap;
-}
-
-/* Section Heading */
-.section h2 {
-  color: #4CAF50; /* Green color for headings */
-  text-align: center; /* Center align the heading */
-  width: 100%;
-  font-size: 24px;
-}
-
-/* Filter Sidebar */
-.filter-sidebar {
-  width: 220px;
-  padding: 15px;
-  border: 1px solid #ddd; /* Light border */
-  border-radius: 8px;
-  background-color: #ffffff; /* White background for sidebar */
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Soft shadow */
-}
-
-.filter-sidebar h3 {
-  color: #4CAF50;
-  margin-bottom: 15px;
-  text-align: center;
-}
-
-.filter-sidebar label {
-  display: block;
-  margin-bottom: 15px;
-  color: #333;
-  font-weight: bold;
-}
-
-.filter-sidebar select,
-.filter-sidebar input {
-  width: 100%;
-  padding: 8px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  font-size: 14px;
-  margin-top: 5px; /* Space between label and input */
-}
-
-/* Search Bar */
-.search-bar {
-  width: 100%; /* Full width for the search bar */
-  max-width: 400px; /* Limit the maximum width */
-  padding: 10px; /* Padding for input */
-  margin-bottom: 20px; /* Space below search bar */
-  border: 1px solid #ccc; /* Light border */
-  border-radius: 4px; /* Rounded corners */
-  font-size: 16px; /* Font size */
+  flex-direction: row;
+  gap: 2rem;
+  padding: 1rem;
+  max-width: 1400px;
+  margin: 0 auto;
   box-sizing: border-box;
 }
 
-/* Pets List */
+.filter-sidebar {
+  flex: 1;
+  background-color: #f9f9f9;
+  padding: 1.5rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  height: fit-content;
+  position: sticky;
+  top: 1rem;
+}
+
+.available-pets-content {
+  flex: 3;
+  min-width: 0; /* Prevents content from overflowing */
+}
+
+.search-bar {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  margin-bottom: 1.5rem;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  font-size: 1rem;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.search-bar:focus {
+  outline: none;
+  border-color: #4CAF50;
+  box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.1);
+}
+
 .pets-list {
-  display: flex;
-  flex-wrap: wrap; /* Allow wrapping of pet cards */
-  justify-content: center; /* Center pet cards horizontally */
-  gap: 20px; /* Space between pet cards */
-  flex-grow: 1;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.5rem;
+  padding: 0.5rem;
 }
 
-/* Pet Card */
 .pet-card {
-  background-color: white; /* White background for pet cards */
-  border: 1px solid #ccc; /* Light border */
-  border-radius: 8px; /* Rounded corners */
-  padding: 15px; /* Padding for pet cards */
-  width: 250px; /* Fixed width for uniformity */
-  text-align: center; /* Center text inside pet cards */
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Soft shadow for pet cards */
-  position: relative;
+  background-color: white;
+  padding: 1.25rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  transition: transform 0.3s, box-shadow 0.3s;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
 }
 
-/* Pet Image Styling */
-.pet-card img {
-  max-width: 100%; /* Ensure images are responsive */
-  border-radius: 4px; /* Rounded corners for images */
-  transition: transform 0.3s ease-in-out;
+.pet-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
 }
 
-.pet-card img:hover {
-  transform: scale(1.05); /* Zoom effect on hover */
-}
-
-/* Image Carousel Navigation */
 .image-carousel {
   position: relative;
-  width: 100%;
-  height: 200px; /* Height of the image carousel */
-  overflow: hidden; /* Hide overflow when scrolling images */
+  border-radius: 8px;
+  overflow: hidden;
+  aspect-ratio: 1;
 }
 
-.image-carousel img {
+.pet-image {
   width: 100%;
   height: 100%;
-  object-fit: cover; /* Ensures the images fill the container */
-  transition: opacity 0.5s ease-in-out;
-}
-
-.image-carousel img.hidden {
-  opacity: 0; /* Hide inactive images */
+  object-fit: cover;
+  border-radius: 8px;
 }
 
 .carousel-button {
@@ -120,48 +87,132 @@
   background-color: rgba(0, 0, 0, 0.5);
   color: white;
   border: none;
-  padding: 10px;
+  padding: 0.5rem 0.75rem;
   cursor: pointer;
-  font-size: 20px;
   border-radius: 50%;
-  z-index: 1;
+  width: 2.5rem;
+  height: 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+  transition: background-color 0.3s;
+}
+
+.carousel-button:hover {
+  background-color: rgba(0, 0, 0, 0.7);
 }
 
 .carousel-button.prev {
-  left: 10px; /* Position left button */
+  left: 0.75rem;
 }
 
 .carousel-button.next {
-  right: 10px; /* Position right button */
+  right: 0.75rem;
 }
 
-/* Pet Card Heading */
-.pet-card h3 {
-  margin: 10px 0; /* Space above and below pet names */
-  font-size: 18px;
+.filter-sidebar label {
+  display: block;
+  margin-bottom: 1rem;
+  font-weight: 500;
   color: #333;
 }
 
-/* Pet Card Details */
-.pet-card p {
-  margin: 5px 0; /* Space above and below pet details */
-  font-size: 14px;
-  color: #555;
+.filter-sidebar input {
+  width: 100%;
+  padding: 0.75rem;
+  margin-top: 0.5rem;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  background-color: #fff;
+  transition: border-color 0.3s;
 }
 
-/* Contact Link */
+.filter-sidebar input:focus {
+  outline: none;
+  border-color: #4CAF50;
+}
+
+.pet-card h3 {
+  margin: 0;
+  font-size: 1.25rem;
+  color: #333;
+}
+
+.pet-card p {
+  margin: 0.25rem 0;
+  color: #666;
+  font-size: 0.9rem;
+}
+
 .pet-card a {
-  display: inline-block; /* Make link a block for better spacing */
-  margin-top: 10px; /* Space above the link */
-  padding: 8px 12px; /* Padding for the link */
-  background-color: #4CAF50; /* Green background for link */
-  color: white; /* White text */
-  border-radius: 4px; /* Rounded corners */
-  text-decoration: none; /* Remove underline */
-  transition: background-color 0.3s; /* Smooth background transition */
+  display: inline-block;
+  margin-top: 0.5rem;
+  padding: 0.5rem 1rem;
+  background-color: #4CAF50;
+  color: white;
+  text-decoration: none;
+  border-radius: 6px;
+  transition: background-color 0.3s;
 }
 
 .pet-card a:hover {
-  background-color: #45a049; /* Darker green on hover */
+  background-color: #45a049;
 }
 
+/* Media Queries */
+@media screen and (max-width: 1024px) {
+  .section {
+    gap: 1.5rem;
+    padding: 1rem;
+  }
+
+  .pets-list {
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .section {
+    flex-direction: column;
+  }
+
+  .filter-sidebar {
+    position: static;
+    margin-bottom: 1.5rem;
+  }
+
+  .pets-list {
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  }
+
+  .pet-card {
+    padding: 1rem;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .section {
+    padding: 0.75rem;
+  }
+
+  .filter-sidebar {
+    padding: 1rem;
+  }
+
+  .pets-list {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .pet-card {
+    padding: 0.75rem;
+  }
+
+  .carousel-button {
+    width: 2rem;
+    height: 2rem;
+    font-size: 1rem;
+  }
+}

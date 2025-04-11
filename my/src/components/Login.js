@@ -1,6 +1,6 @@
 import React, { useState, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { AuthContext } from '../contexts/AuthContext'; // Ensure AuthContext is correctly imported
+import { AuthContext } from '../contexts/AuthContext'; 
 import './Login.css';
 import { toast } from 'react-toastify';
 
@@ -12,14 +12,36 @@ const Login = () => {
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
 
-  const { setAuthData } = useContext(AuthContext); // Pull setAuthData from AuthContext
+  const { setAuthData } = useContext(AuthContext); 
   const navigate = useNavigate();
+
+  const handlePhoneChange = (e) => {
+    const input = e.target.value;
+    if (/^\d{0,10}$/.test(input)) {
+      setPhone(input);
+    }
+  };
+
+  const isStrongPassword = (password) => {
+    const strongPasswordRegex = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{6,}$/;
+    return strongPasswordRegex.test(password);
+  };
 
   const handleSubmit = async (event) => {
     event.preventDefault();
 
     if (!isLogin && password !== confirmPassword) {
       toast.error("Passwords don't match!");
+      return;
+    }
+
+    if (!isLogin && phone.length !== 10) {
+      toast.error('Phone number must be exactly 10 digits.');
+      return;
+    }
+
+    if (!isLogin && !isStrongPassword(password)) {
+      toast.error('Password must contain letters, digits, special characters, and be at least 6 characters long.');
       return;
     }
 
@@ -38,13 +60,8 @@ const Login = () => {
 
       if (response.ok) {
         const data = await response.json();
-
-        // Update AuthContext with user data and token
         setAuthData({ token: data.token, user: data.user });
-
         toast.success(isLogin ? 'Login successful!' : 'Registration successful!');
-        
-        // Redirect to home page
         navigate('/');
       } else {
         const errorData = await response.json();
@@ -58,59 +75,88 @@ const Login = () => {
 
   return (
     <div id="login" className="login-section">
-      <h2>{isLogin ? 'Login' : 'Sign Up'}</h2>
-      <form onSubmit={handleSubmit}>
-        {!isLogin && (
-          <>
-            <label>Name:</label>
+      <div className="login-container">
+        <h2>{isLogin ? 'Login' : 'Sign Up'}</h2>
+        <form onSubmit={handleSubmit}>
+          {!isLogin && (
+            <>
+              <div className="form-group">
+                <label htmlFor="name">Name:</label>
+                <input
+                  id="name"
+                  type="text"
+                  required
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
+                  placeholder="Enter your name"
+                />
+              </div>
+              <div className="form-group">
+                <label htmlFor="phone">Phone:</label>
+                <input
+                  id="phone"
+                  type="text"
+                  required
+                  value={phone}
+                  onChange={handlePhoneChange}
+                  placeholder="Enter your phone number"
+                />
+              </div>
+            </>
+          )}
+          <div className="form-group">
+            <label htmlFor="email">Email:</label>
             <input
-              type="text"
+              id="email"
+              type="email"
               required
-              value={name}
-              onChange={(e) => setName(e.target.value)}
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              placeholder="Enter your email"
             />
-            <label>Phone:</label>
+          </div>
+          <div className="form-group">
+            <label htmlFor="password">Password:</label>
             <input
-              type="text"
-              required
-              value={phone}
-              onChange={(e) => setPhone(e.target.value)}
-            />
-          </>
-        )}
-        <label>Email:</label>
-        <input
-          type="email"
-          required
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-        />
-        <label>Password:</label>
-        <input
-          type="password"
-          required
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-        />
-        {!isLogin && (
-          <>
-            <label>Confirm Password:</label>
-            <input
+              id="password"
               type="password"
               required
-              value={confirmPassword}
-              onChange={(e) => setConfirmPassword(e.target.value)}
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              placeholder="Enter your password"
             />
-          </>
-        )}
-        <button type="submit">{isLogin ? 'Login' : 'Sign Up'}</button>
-      </form>
-      <p>
-        {isLogin ? "Don't have an account?" : 'Already have an account?'}
-        <span onClick={() => setIsLogin(!isLogin)} className="toggle-link">
-          {isLogin ? ' Sign Up' : ' Login'}
-        </span>
-      </p>
+            {!isLogin && (
+              <div className="password-strength">
+                {password && (
+                  <span className={isStrongPassword(password) ? 'strong' : 'weak'}>
+                    {isStrongPassword(password) ? 'Strong password' : 'Weak password'}
+                  </span>
+                )}
+              </div>
+            )}
+          </div>
+          {!isLogin && (
+            <div className="form-group">
+              <label htmlFor="confirmPassword">Confirm Password:</label>
+              <input
+                id="confirmPassword"
+                type="password"
+                required
+                value={confirmPassword}
+                onChange={(e) => setConfirmPassword(e.target.value)}
+                placeholder="Confirm your password"
+              />
+            </div>
+          )}
+          <button type="submit">{isLogin ? 'Login' : 'Sign Up'}</button>
+        </form>
+        <p className="toggle-text">
+          {isLogin ? "Don't have an account?" : 'Already have an account?'}
+          <span onClick={() => setIsLogin(!isLogin)} className="toggle-link">
+            {isLogin ? ' Sign Up' : ' Login'}
+          </span>
+        </p>
+      </div>
     </div>
   );
 };

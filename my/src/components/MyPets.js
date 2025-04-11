@@ -33,11 +33,6 @@ const MyPets = () => {
     }
   };
 
-  // const updatePet = (petId) => {
-  //   // Redirect to update page (you can implement this as a separate component)
-  //   // For example: history.push(`/pets/update/${petId}`);
-  //   console.log(`Update pet with ID: ${petId}`);
-  // };
 
   useEffect(() => {
     fetchPets();

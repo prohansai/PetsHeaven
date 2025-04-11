@@ -1,92 +1,18 @@
-// import React, { useState, useContext } from 'react';
-// import { Link } from 'react-router-dom';
-// import { FaUserCircle } from 'react-icons/fa';
-// import { AuthContext } from '../contexts/AuthContext'; // Import AuthContext
-// import './Navbar.css';
-
-// const Navbar = () => {
-//   const [showProfileMenu, setShowProfileMenu] = useState(false);
-//   const { user, logout } = useContext(AuthContext); // Get user and logout function
-
-//   const handleProfileClick = () => {
-//     setShowProfileMenu(!showProfileMenu);
-//   };
-
-//   const handleLogout = () => {
-//     logout(); // Call logout function from AuthContext
-//     setShowProfileMenu(false); // Hide the profile menu after logging out
-//   };
-
-//   return (
-//     <nav className="nav">
-//       <ul>
-//         <li>
-//           <Link to="/" className="nav-link">Home</Link>
-//         </li>
-//         <li>
-//           <Link to="/availablePets" className="nav-link">Available Pets</Link>
-//         </li>
-//         <li>
-//           <Link to="/adoptionProcess" className="nav-link">Adoption Process</Link>
-//         </li>
-//         <li>
-//           <Link to="/donate" className="nav-link">Donate</Link>
-//         </li>
-//         <li>
-//           <Link to="/contactUs" className="nav-link">Contact Us</Link>
-//         </li>
-//         {!user ? ( // Show Login link if not authenticated
-//           <li>
-//             <Link to="/login" className="nav-link">Login</Link>
-//           </li>
-//         ) : ( // Show profile and logout if authenticated
-//           <>
-//             <li className="profile-icon" onClick={handleProfileClick}>
-//               <FaUserCircle size={24} />
-//               {showProfileMenu && (
-//                 <div className="profile-dropdown">
-//                   <ul>
-//                     <li>
-//                       <Link to="/addPet" onClick={() => setShowProfileMenu(false)}>Add a Pet</Link>
-//                     </li>
-//                     <li>
-//                       <Link to="/myPets" onClick={() => setShowProfileMenu(false)}>My Pets</Link>
-//                     </li>
-//                     <li>
-//                       <Link to="/myAdoptions" onClick={() => setShowProfileMenu(false)}>My Adoptions</Link>
-//                     </li>
-//                     <li>
-//                       <Link to="/myDonations" onClick={() => setShowProfileMenu(false)}>My Donations</Link>
-//                     </li>
-//                     <li>
-//                       <button onClick={handleLogout} className="logout-button">Logout</button> {/* Logout button */}
-//                     </li>
-//                   </ul>
-//                 </div>
-//               )}
-//             </li>
-//           </>
-//         )}
-//       </ul>
-//     </nav>
-//   );
-// };
-
-// export default Navbar;
 import React, { useState, useContext } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { FaUserCircle } from 'react-icons/fa';
+import { FaUserCircle, FaBars, FaTimes } from 'react-icons/fa';
 import { AuthContext } from '../contexts/AuthContext';
 import './Navbar.css';
 import { toast } from 'react-toastify';
 
 const Navbar = () => {
   const [showProfileMenu, setShowProfileMenu] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const { user, logout } = useContext(AuthContext);
   const navigate = useNavigate();
 
   const handleProfileClick = () => {
-    setShowProfileMenu(!showProfileMenu); // Toggle profile menu on click
+    setShowProfileMenu(!showProfileMenu);
   };
 
   const handleLogout = () => {
@@ -96,27 +22,34 @@ const Navbar = () => {
     navigate('/');
   };
 
+  const toggleMobileMenu = () => {
+    setIsMobileMenuOpen(!isMobileMenuOpen);
+  };
+
   return (
     <nav className="nav">
-      <ul>
+      <div className="mobile-menu-toggle" onClick={toggleMobileMenu}>
+        {isMobileMenuOpen ? <FaTimes /> : <FaBars />}
+      </div>
+      <ul className={`nav-links ${isMobileMenuOpen ? 'active' : ''}`}>
         <li>
-          <Link to="/" className="nav-link">Home</Link>
+          <Link to="/" className="nav-link" onClick={() => setIsMobileMenuOpen(false)}>Home</Link>
         </li>
         <li>
-          <Link to="/availablePets" className="nav-link">Available Pets</Link>
+          <Link to="/availablePets" className="nav-link" onClick={() => setIsMobileMenuOpen(false)}>Available Pets</Link>
         </li>
         <li>
-          <Link to="/adoptionProcess" className="nav-link">Adoption Process</Link>
+          <Link to="/adoptionProcess" className="nav-link" onClick={() => setIsMobileMenuOpen(false)}>Adoption Process</Link>
         </li>
         <li>
-          <Link to="/donate" className="nav-link">Donate</Link>
+          <Link to="/donate" className="nav-link" onClick={() => setIsMobileMenuOpen(false)}>Donate</Link>
         </li>
         <li>
-          <Link to="/contactUs" className="nav-link">Contact Us</Link>
+          <Link to="/contactUs" className="nav-link" onClick={() => setIsMobileMenuOpen(false)}>Contact Us</Link>
         </li>
         {!user ? (
           <li>
-            <Link to="/login" className="nav-link">Login</Link>
+            <Link to="/login" className="nav-link" onClick={() => setIsMobileMenuOpen(false)}>Login</Link>
           </li>
         ) : (
           <li className="profile-icon" onClick={handleProfileClick}>
@@ -126,22 +59,22 @@ const Navbar = () => {
                 <ul>
                   <li>
                     <Link to="/addPet">
-                      <button className="logout-button" onClick={() => setShowProfileMenu(false)}>Add a Pet</button>
+                      <button className="logout-button" onClick={() => {setShowProfileMenu(false); setIsMobileMenuOpen(false);}}>Add a Pet</button>
                     </Link>
                   </li>
                   <li>
                     <Link to="/myPets">
-                      <button className="logout-button" onClick={() => setShowProfileMenu(false)}>My Pets</button>
+                      <button className="logout-button" onClick={() => {setShowProfileMenu(false); setIsMobileMenuOpen(false);}}>My Pets</button>
                     </Link>
                   </li>
                   <li>
                     <Link to="/myAdoptions">
-                      <button className="logout-button" onClick={() => setShowProfileMenu(false)}>My Adoptions</button>
+                      <button className="logout-button" onClick={() => {setShowProfileMenu(false); setIsMobileMenuOpen(false);}}>My Adoptions</button>
                     </Link>
                   </li>
                   <li>
                     <Link to="/myDonations">
-                      <button className="logout-button" onClick={() => setShowProfileMenu(false)}>My Donations</button>
+                      <button className="logout-button" onClick={() => {setShowProfileMenu(false); setIsMobileMenuOpen(false);}}>My Donations</button>
                     </Link>
                   </li>
                   <li>

@@ -2,77 +2,130 @@
   display: flex;
   justify-content: space-between;
   width: 100%;
-  padding: 20px;
+  padding: 2rem;
+  min-height: 100vh;
+  background-image: url('./donate-bg.png');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
 }
 
 .contact-section {
   display: flex;
   flex-direction: column;
-  justify-content: center; /* Center content vertically */
-  align-items: center; /* Center content horizontally */
-  padding: 20px;
-  background-color: #f9f9f9;
-  border-radius: 8px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  width: 70%; /* Adjust to take 70% of the width */
-  min-height: 300px; /* Ensure enough height for the form */
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  background-color: rgba(255, 255, 255, 0.95);
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  width: 70%;
+  min-height: 300px;
+  backdrop-filter: blur(5px);
 }
 
 .contact-section h2 {
   color: #4CAF50;
-  margin-bottom: 20px;
-  text-align: center; /* Center heading text */
+  margin-bottom: 1.5rem;
+  text-align: center;
+  font-size: 2rem;
 }
 
 .contact-section p {
   text-align: center;
-  margin-bottom: 20px;
+  margin-bottom: 1.5rem;
+  color: #333;
+  line-height: 1.6;
 }
 
 .contact-section .contact-form {
   display: flex;
   flex-direction: column;
-  align-items: center; /* Center form elements horizontally */
+  align-items: center;
   width: 100%;
+  max-width: 500px;
 }
 
 .contact-section label {
-  margin-bottom: 5px;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+  color: #333;
+  width: 100%;
 }
 
 .contact-section input,
 .contact-section textarea {
-  padding: 10px;
-  margin-bottom: 15px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  font-size: 16px;
+  padding: 0.75rem 1rem;
+  margin-bottom: 1rem;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  font-size: 1rem;
   width: 100%;
+  background-color: rgba(255, 255, 255, 0.9);
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.contact-section input:focus,
+.contact-section textarea:focus {
+  outline: none;
+  border-color: #4CAF50;
+  box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.1);
 }
 
 .contact-section button {
-  padding: 10px 15px;
+  padding: 0.75rem 1.5rem;
   background-color: #4CAF50;
   color: white;
   border: none;
-  border-radius: 4px;
-  font-size: 16px;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 500;
   cursor: pointer;
-  transition: background-color 0.3s;
+  transition: background-color 0.3s, transform 0.2s;
+  width: 100%;
+  max-width: 200px;
 }
 
 .contact-section button:hover {
   background-color: #45a049;
+  transform: translateY(-2px);
 }
 
 .photo {
-  width: 30%; /* Adjust to take 30% of the width */
-  display: flex;
-  justify-content: center;
+  display: none;
 }
 
-.photo img {
-  width: 100%;
-  border-radius: 8px;
-  padding-right: 150px;
+/* Media Queries */
+@media screen and (max-width: 768px) {
+  .mine {
+    padding: 1rem;
+  }
+
+  .contact-section {
+    width: 100%;
+    padding: 1.5rem;
+  }
+
+  .contact-section h2 {
+    font-size: 1.75rem;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .mine {
+    padding: 0.75rem;
+  }
+
+  .contact-section {
+    padding: 1rem;
+  }
+
+  .contact-section h2 {
+    font-size: 1.5rem;
+  }
+
+  .contact-section input,
+  .contact-section textarea {
+    font-size: 0.9rem;
+  }
 }

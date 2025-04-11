@@ -1,10 +1,11 @@
-// //delteing pet after adoption
+// //after pet name, image
 // import React, { useState } from 'react';
 // import axios from 'axios';
 // import UserSearch from '../components/UserSearch';
 // import PetSearch from '../components/PetSearch';
 // import './AddAdoption.css';
 // import Navbar from '../components/Navbar';
+// import { toast } from 'react-toastify';
 
 // const AddAdoption = () => {
 //     const [selectedAdopter, setSelectedAdopter] = useState(null);
@@ -17,12 +18,14 @@
 //         e.preventDefault();
 
 //         if (!selectedAdopter || !selectedOwner || !selectedPet) {
-//             alert('Please select an adopter, owner, and pet');
+//             toast.error('Please select an adopter, owner, and pet');
 //             return;
 //         }
 
+//         // Prepare adoption data with petName and petImage directly
 //         const adoptionData = {
-//             petId: selectedPet._id,
+//             petName: selectedPet.name,
+//             petImage: selectedPet.images[0],  // Ensure `image` field is available in Pet data
 //             ownerId: selectedOwner._id,
 //             adopterId: selectedAdopter._id,
 //             date,
@@ -38,7 +41,7 @@
 //             });
 
 //             if (response && response.status >= 200 && response.status < 300) {
-//                 alert('Adoption added successfully!');
+//                 toast.success('Adoption added successfully!');
 
 //                 // Step 2: Delete the adopted pet from the database using the admin route
 //                 await axios.delete(`http://localhost:5000/api/pets/admin/${selectedPet._id}`);
@@ -52,12 +55,11 @@
 //             }
 //         } catch (error) {
 //             console.error('Failed to add adoption:', error);
-//             alert('Failed to add adoption');
+//             toast.error('Failed to add adoption');
 //         }
 //     };
 
 //     return (
-        
 //         <div className="form-container">
 //             <Navbar />
 //             <h2>Add Adoption</h2>
@@ -80,9 +82,9 @@
 //                     onChange={(e) => setDate(e.target.value)}
 //                     required
 //                 />
-//                 <select value={status} onChange={(e) => setStatus(e.target.value)}>
-//                     <option value="in progress">In Progress</option>
+//                 <select value={status} onChange={(e) => setStatus(e.target.value)}>   
 //                     <option value="completed">Completed</option>
+//                     <option value="in progress">In Progress</option>
 //                 </select>
 //                 <button type="submit">Submit Adoption</button>
 //             </form>
@@ -91,12 +93,6 @@
 // };
 
 // export default AddAdoption;
-
-
-
-
-
-//after pet name, image
 import React, { useState } from 'react';
 import axios from 'axios';
 import UserSearch from '../components/UserSearch';
@@ -120,10 +116,15 @@ const AddAdoption = () => {
             return;
         }
 
+        if (selectedAdopter._id === selectedOwner._id) {
+            toast.error('Adopter and owner cannot be the same person');
+            return;
+        }
+
         // Prepare adoption data with petName and petImage directly
         const adoptionData = {
             petName: selectedPet.name,
-            petImage: selectedPet.images[0],  // Ensure `image` field is available in Pet data
+            petImage: selectedPet.images[0], // Ensure `image` field is available in Pet data
             ownerId: selectedOwner._id,
             adopterId: selectedAdopter._id,
             date,
@@ -162,11 +163,25 @@ const AddAdoption = () => {
             <Navbar />
             <h2>Add Adoption</h2>
             <label>Adopter</label>
-            <UserSearch onSelectUser={setSelectedAdopter} />
+            <UserSearch
+                onSelectUser={(user) => {
+                    setSelectedAdopter(user);
+                    if (selectedOwner && user._id === selectedOwner._id) {
+                        toast.error('Adopter and owner cannot be the same person');
+                    }
+                }}
+            />
             {selectedAdopter && <p>Selected Adopter: {selectedAdopter.name}</p>}
 
             <label>Owner</label>
-            <UserSearch onSelectUser={setSelectedOwner} />
+            <UserSearch
+                onSelectUser={(user) => {
+                    setSelectedOwner(user);
+                    if (selectedAdopter && user._id === selectedAdopter._id) {
+                        toast.error('Adopter and owner cannot be the same person');
+                    }
+                }}
+            />
             {selectedOwner && <p>Selected Owner: {selectedOwner.name}</p>}
 
             <label>Pet</label>

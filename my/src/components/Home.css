@@ -1,56 +1,66 @@
 .f3 {
   display: flex;
-  flex-direction: row; /* Default layout for all sections */
+  flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  gap: 20px;
+  gap: 2rem;
+  width: 100%;
 }
 
 .f3 img {
   max-width: 450px;
   height: auto;
   border-radius: 8px;
+  width: 100%;
 }
 
 .home-section {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 20px;
+  padding: 2rem;
   background-color: #f9f9f9;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .hero {
   text-align: center;
-  margin-bottom: 40px;
+  margin-bottom: 2.5rem;
+  width: 100%;
+  max-width: 800px;
 }
 
 .hero h1 {
   color: #4CAF50;
-  margin-bottom: 10px;
+  margin-bottom: 1rem;
+  font-size: 2.5rem;
 }
 
 .hero p {
-  font-size: 18px;
-  margin-bottom: 20px;
+  font-size: 1.125rem;
+  margin-bottom: 1.25rem;
+  line-height: 1.5;
 }
 
 .cta-buttons {
-  margin: 20px 0;
+  margin: 1.25rem 0;
   display: flex;
   justify-content: center;
-  gap: 20px;
+  gap: 1rem;
+  flex-wrap: wrap;
 }
 
 .cta-buttons button {
-  padding: 10px 20px;
+  padding: 0.75rem 1.5rem;
   background-color: #4CAF50;
   color: white;
   border: none;
   border-radius: 4px;
-  font-size: 16px;
+  font-size: 1rem;
   cursor: pointer;
   transition: background-color 0.3s;
+  min-width: 200px;
 }
 
 .cta-buttons button:hover {
@@ -65,8 +75,8 @@
 .pet-care-tips {
   width: 100%;
   max-width: 800px;
-  margin: 20px 0;
-  padding: 20px;
+  margin: 1.25rem 0;
+  padding: 1.25rem;
   background-color: white;
   border-radius: 8px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
@@ -80,7 +90,8 @@
 .help-section h2,
 .pet-care-tips h2 {
   color: #4CAF50;
-  margin-bottom: 10px;
+  margin-bottom: 1rem;
+  font-size: 1.75rem;
 }
 
 .success-stories {
@@ -93,14 +104,17 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-bottom: 20px;
+  margin-bottom: 1.25rem;
+  width: 100%;
 }
 
 .story img {
-  width: 200px;
+  width: 100%;
+  max-width: 300px;
   height: auto;
-  margin-bottom: 10px;
+  margin-bottom: 1rem;
   border-radius: 4px;
+  object-fit: cover;
 }
 
 .events ul,
@@ -112,11 +126,93 @@
 
 .events li,
 .pet-care-tips li {
-  margin-bottom: 10px;
+  margin-bottom: 0.75rem;
+  font-size: 1rem;
+  line-height: 1.5;
 }
 
 .toggle-link {
   color: #4CAF50;
   cursor: pointer;
   text-decoration: underline;
+}
+
+/* Media Queries */
+@media screen and (max-width: 768px) {
+  .f3 {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .hero h1 {
+    font-size: 2rem;
+  }
+
+  .hero p {
+    font-size: 1rem;
+  }
+
+  .mission-statement,
+  .stats,
+  .success-stories,
+  .events,
+  .help-section,
+  .pet-care-tips {
+    padding: 1rem;
+    margin: 1rem 0;
+  }
+
+  .mission-statement h2,
+  .stats h2,
+  .success-stories h2,
+  .events h2,
+  .help-section h2,
+  .pet-care-tips h2 {
+    font-size: 1.5rem;
+  }
+
+  .cta-buttons button {
+    width: 100%;
+    max-width: 300px;
+  }
+
+  .story img {
+    max-width: 250px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .home-section {
+    padding: 1rem;
+  }
+
+  .hero h1 {
+    font-size: 1.75rem;
+  }
+
+  .hero p {
+    font-size: 0.9rem;
+  }
+
+  .cta-buttons {
+    gap: 0.75rem;
+  }
+
+  .cta-buttons button {
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+  }
+
+  .mission-statement,
+  .stats,
+  .success-stories,
+  .events,
+  .help-section,
+  .pet-care-tips {
+    padding: 0.75rem;
+  }
+
+  .story img {
+    max-width: 200px;
+  }
 }

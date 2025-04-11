@@ -57,3 +57,50 @@
   border: 2px solid #ddd; /* Slightly thicker border for emphasis */
   border-radius: 8px;
 }
+
+.donor-list {
+  list-style: disc;
+  padding-left: 1.5rem;
+  margin: 1.5rem 0;
+}
+
+.donor-list li {
+  background-color: transparent;
+  padding: 0.5rem 0;
+  margin-bottom: 0.5rem;
+  border-radius: 0;
+  box-shadow: none;
+  font-size: 0.85rem;
+  line-height: 1.5;
+  color: #333;
+}
+
+.donor-list li strong {
+  color: #4CAF50;
+  font-size: 0.9rem;
+}
+
+/* Media Queries */
+@media screen and (max-width: 768px) {
+  .donor-list li {
+    padding: 0.4rem 0;
+    margin-bottom: 0.4rem;
+    font-size: 0.8rem;
+  }
+
+  .donor-list li strong {
+    font-size: 0.85rem;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .donor-list li {
+    padding: 0.3rem 0;
+    margin-bottom: 0.3rem;
+    font-size: 0.75rem;
+  }
+
+  .donor-list li strong {
+    font-size: 0.8rem;
+  }
+}
