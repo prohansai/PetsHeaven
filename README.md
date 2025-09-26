@@ -25,8 +25,8 @@ Welcome to Pets Heaven, a full-stack MERN application dedicated to connecting pe
 | Homepage                                         | Pets Listing Page                               |
 | ------------------------------------------------ | ----------------------------------------------- |
 | ![Pets Heaven Home Page](https://github.com/prohansai/PetsHeaven/blob/master/screenshots/Screenshot%202025-09-26%20130107.png?raw=true)         | ![Pets Listing Page](https://github.com/prohansai/PetsHeaven/blob/master/screenshots/Screenshot%202025-09-26%20130149.png?raw=true) |
-| **Admin Dashboard** | **Donation Page** |
-| ![Admin Dashboard](https://github.com/prohansai/PetsHeaven/blob/master/screenshots/Screenshot%202025-09-26%20142355.png?raw=truehttps://github.com/prohansai/PetsHeaven/blob/master/screenshots/Screenshot%202025-09-26%20142355.png?raw=true) | ![Donation Page](https://github.com/prohansai/PetsHeaven/blob/master/screenshots/Screenshot%202025-09-26%20130228.png?raw=true)  |
+| **Donation Page** | **Admin Dashboard** |
+| ![Donation Page](https://github.com/prohansai/PetsHeaven/blob/master/screenshots/Screenshot%202025-09-26%20130228.png?raw=true) | ![Admin Dashboard](https://github.com/prohansai/PetsHeaven/blob/master/screenshots/Screenshot%202025-09-26%20142355.png?raw=true)  |
 
 
 ## 🛠️ Tech Stack
